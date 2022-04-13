@@ -55,7 +55,7 @@ const AsyncFormSelect: React.FC<Props> = ({
   const searchOneOption = useCallback(async (valueToSearch: string) => {
     const response = await api.get(uri + '/' + valueToSearch, {
       headers: {
-        filters: JSON.stringify(filters)
+        filters: JSON.stringify(filters || {})
       }
     })
     const { data } = response.data
@@ -134,7 +134,7 @@ const AsyncFormSelect: React.FC<Props> = ({
           textFilter: inputValue
         },
         headers: {
-          filters: JSON.stringify(filters)
+          filters: JSON.stringify(filters || {})
         }
       })
 
@@ -169,7 +169,7 @@ const AsyncFormSelect: React.FC<Props> = ({
         page,
       },
       headers: {
-        filters: JSON.stringify(filters)
+        filters: JSON.stringify(filters || {})
       }
     })
 
